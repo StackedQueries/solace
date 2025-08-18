@@ -30,9 +30,12 @@ export default function Home() {
   const checkSimilar = (s: any, searchTerm: string) => {
     switch (typeof s) {
       case "string":
-        return s.toLowerCase().includes(searchTerm.toLowerCase());
+        return s.toLowerCase().includes(searchTerm.toLowerCase().trim());
       case "number":
-        return s.toString().toLowerCase().includes(searchTerm.toLowerCase());
+        return s
+          .toString()
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase().trim());
       case "object":
         if (Array.isArray(s)) {
           for (const attr in s) {
